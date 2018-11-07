@@ -117,6 +117,7 @@ Thumbs.db
 *.unsuccessfulbuild
 *.opendb
 .vs/
+vs*/
 release_shared/
 debug_shared/
 release_static/
