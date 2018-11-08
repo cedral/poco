@@ -66,6 +66,7 @@
 // Automatically link Foundation library.
 //
 #if defined(_MSC_VER)
+#ifndef POCO_LIB_SUFFIX
 	#if defined(POCO_DLL)
 		#if defined(_DEBUG)
 			#define POCO_LIB_SUFFIX "d.lib"
@@ -85,6 +86,7 @@
 			#define POCO_LIB_SUFFIX "mt.lib"
 		#endif
 	#endif
+#endif
 
 	#if !defined(POCO_NO_AUTOMATIC_LIBS) && !defined(Foundation_EXPORTS)
 		#pragma comment(lib, "PocoFoundation" POCO_LIB_SUFFIX)

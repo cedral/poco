@@ -128,8 +128,13 @@ enum RSAPaddingMode
 					#pragma comment(lib, "ssleay32" POCO_LIB_SUFFIX)
 				#endif
 			#elif POCO_EXTERNAL_OPENSSL == POCO_EXTERNAL_OPENSSL_DEFAULT
+                          #if OPENSSL_VERSION_NUMBER < 0x10100000L
 				#pragma comment(lib, "libeay32.lib")
 				#pragma comment(lib, "ssleay32.lib")
+                          #else //OPENSSL_VERSION_NUMBER
+                                #pragma comment(lib, "libcrypto.lib")
+                                #pragma comment(lib, "libssl.lib")
+                          #endif
 			#endif
 		#endif // POCO_INTERNAL_OPENSSL_MSVC_VER
 		#if !defined(Crypto_EXPORTS)
